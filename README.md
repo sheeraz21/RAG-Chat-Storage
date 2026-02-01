@@ -62,8 +62,9 @@ A **Spring Boot REST API** for chat management with PostgreSQL as the database, 
 All API endpoints under /api/v1/* are protected by API key.
 
 - Header required:
+  
 - X-API-KEY: <your-api-key>
-- The key is injected via application.properties:
+
 - security.api.key=bXktc2VjcmV0LWFwaS1rZXk=
 
 - Swagger UI and Actuator endpoints are whitelisted and do not require an API key.
