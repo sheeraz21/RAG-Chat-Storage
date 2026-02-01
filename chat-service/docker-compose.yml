@@ -1,0 +1,28 @@
+services:
+  chat-postgres:
+    image: postgres:15
+    container_name: chat-postgres
+    environment:
+      POSTGRES_DB: chatdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - chat-postgres-data:/var/lib/postgresql/data
+
+  chat-service:
+    build: .
+    container_name: chat-service
+    depends_on:
+      - chat-postgres
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    restart: unless-stopped
+
+volumes:
+  chat-postgres-data:
