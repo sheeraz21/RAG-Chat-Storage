@@ -65,7 +65,7 @@ All API endpoints under /api/v1/* are protected by API key.
   
 - X-API-KEY: <your-api-key>
 
-- security.api.key=bXktc2VjcmV0LWFwaS1rZXk=
+- security.api.key=
 
 - Swagger UI and Actuator endpoints are whitelisted and do not require an API key.
 
