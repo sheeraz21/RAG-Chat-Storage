@@ -101,7 +101,7 @@ All API endpoints under /api/v1/* are protected by API key.
 # Stop and remove containers
 - docker compose down -v
 
-# Spring Boot API will be available at:
+# Services will be available at:
 - http://localhost:8080
 - PostgreSQL DB accessible at:
 - localhost:5432
@@ -116,6 +116,17 @@ All API endpoints under /api/v1/* are protected by API key.
 - Health Check: http://localhost:8080/actuator/health
 
 - Metrics: http://localhost:8080/actuator/metrics
+
+# Environment Variables
+  
+- SPRING_DATASOURCE_URL	JDBC URL for PostgreSQL
+
+- SPRING_DATASOURCE_USERNAME	DB username
+
+- SPRING_DATASOURCE_PASSWORD	DB password
+
+- security.api.key	API key for secure endpoints
+
 
 # Notes
 
