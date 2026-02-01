@@ -1,0 +1,120 @@
+{
+  "info": {
+    "name": "Chat Session API",
+    "_postman_id": "6c6b9d62-7c35-4a0c-9c3f-9a2b5c1c1234",
+    "description": "Postman collection for ChatSessionController with X-API-KEY header",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Chat Session",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"50784c95-0fc5-4b82-876b-28e15acf3220\",\n  \"title\": \"My First Chat Session\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/create",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "sessions", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rename Chat Session",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Renamed Chat Session\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/rename",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "sessions", "{{sessionId}}", "rename"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Mark Session as Favorite",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"favorite\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/favorite",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "sessions", "{{sessionId}}", "favorite"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Chat Session",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/delete/{{sessionId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "sessions", "delete", "{{sessionId}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9090"
+    },
+    {
+      "key": "apiKey",
+      "value": "my-secret-api-key"
+    },
+    {
+      "key": "sessionId",
+      "value": "3e9b6c25-c10e-4b3d-bd34-eb02b7c65de8"
+    }
+  ]
+}

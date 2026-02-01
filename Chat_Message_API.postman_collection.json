@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "Chat Message API",
+    "_postman_id": "9f2c8d44-12b6-4f9a-9b1e-8c9f9eaa5678",
+    "description": "Postman collection for ChatMessageController with X-API-KEY authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add Chat Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sender\": \"USER\",\n  \"content\": \"Hello, this is a test message\",\n  \"retrievedContext\": {\n    \"source\": \"demo\",\n    \"tokens\": 128\n  },\n  \"documentIds\": [\n    \"3e9b6c25-c10e-4b3d-bd34-eb02b7c65de8\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/messages/add",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "v1",
+            "sessions",
+            "{{sessionId}}",
+            "messages",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Chat Messages (Paginated)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/messages/list?page=0&size=10",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "v1",
+            "sessions",
+            "{{sessionId}}",
+            "messages",
+            "list"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9090"
+    },
+    {
+      "key": "apiKey",
+      "value": "my-secret-api-key"
+    },
+    {
+      "key": "sessionId",
+      "value": "50784c95-0fc5-4b82-876b-28e15acf3220"
+    }
+  ]
+}
